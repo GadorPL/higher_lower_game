@@ -10,12 +10,12 @@ def check_answer(guess, a_followers, b_followers):
         return guess == "B"
 
 
-print(logo)
 score = 0
 account_a = random.choice(data)
 game_over = False
 
 while not game_over:
+    print(logo)
     account_b = random.choice(data)
     while account_a['follower_count'] == account_b['follower_count']:
         account_b = random.choice(data)
@@ -31,9 +31,9 @@ while not game_over:
 
     if check_answer(user_answer, account_a_follower_count, account_b_follower_count):
         score += 1
-        print(f"\n\n\nYou're right! Current score: {score}\n\n")
+        print(f"\n\nYou're right! Current score: {score}")
         account_a = account_b
     else:
-        print(f"\n\n\nSorry, that's wrong. Final score: {score}")
+        print(f"Sorry, that's wrong. Final score: {score}")
         game_over = True
 
