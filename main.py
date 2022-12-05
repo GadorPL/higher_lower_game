@@ -3,6 +3,13 @@ from art import logo, vs
 import random
 
 
+def check_answer(guess, a_followers, b_followers):
+    if a_followers > b_followers:
+        return guess == "A"
+    else:
+        return guess == "B"
+
+
 print(logo)
 score = 0
 account_a = random.choice(data)
@@ -21,12 +28,8 @@ while not game_over:
 
     account_a_follower_count = account_a['follower_count']
     account_b_follower_count = account_b['follower_count']
-    if account_a_follower_count > account_b_follower_count:
-        correct_answer = 'A'
-    else:
-        correct_answer = 'B'
 
-    if correct_answer == user_answer:
+    if check_answer(user_answer, account_a_follower_count, account_b_follower_count):
         score += 1
         print(f"\n\n\nYou're right! Current score: {score}\n\n")
         account_a = account_b
