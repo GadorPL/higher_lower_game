@@ -1,7 +1,7 @@
 from game_data import data
 import random
 
-
+score = 0
 account_a = random.choice(data)
 account_b = random.choice(data)
 print(f"Compare A: {account_a['name']}, {account_a['description']}, from {account_a['country']}.")
@@ -18,11 +18,13 @@ else:
     correct_answer = 'B'
 
 if correct_answer == user_answer:
-    print("You're right!")
+    score += 1
+    print(f"You're right! Current score: {score}")
 else:
-    print("Sorry, that's wrong")
+    print(f"Sorry, that's wrong. Final score: {score}")
+    game_over = True
 
-# TODO: Keep score
+
 # TODO: 3 Place account B in place of account A and then take random new account as a choice B
 # TODO: Add logos
 # TODO: Make sure there can never be compared 2 accounts with the same number of followers
